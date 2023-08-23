@@ -30,29 +30,28 @@
  			 }
 			return $con;
 		}
-
 	}
 
-	// class Inserir {
-	// 	private $dados;
-	// 	private $tabela;
-	// 	private $chaves;
-	// 	private $valores;
-	// 	private $blind = '*';
-	// 	private $conexao;
+	class Inserir {
+		private $dados;
+		private $tabela;
+		private $chaves;
+		private $valores;
+		private $blind = '*';
+		private $conexao;
 
-	// 	function __construct($conexao, $tabela, $dados){
-	// 		$this->dados = $dados;
-	// 		$this->tabela = $tabela;
-	// 		$this->chaves = array_keys($dados);
-	// 		$this->valores = array_values($dados);			
-	// 	}
+		function __construct($conexao, $tabela, $dados){
+			$this->dados = $dados;
+			$this->tabela = $tabela;
+			$this->chaves = array_keys($dados);
+			$this->valores = array_values($dados);			
+		}
 
-	// 	public function insere(){
-	// 		$query = "INSERT INTO $this->tabela ($this->chaves) VALUES $this->valores ";
-	// 		echo $query;
-	// 	}
-	// }
+		public function insere(){
+			$query = "INSERT INTO $this->tabela ($this->chaves) VALUES $this->valores ";
+			echo $query;
+		}
+	}
 	/*END OF CLASSES*/
 
 	/*DEFINICOES*/
@@ -65,15 +64,15 @@
 	$myCon = new Conexao($host,$user,$pass,$dbname);
 	$myTable = 'funcionarios';
 	$myData = array('nome'=>'alex','sobrenome'=>'portz','valor'=>'123');
-	// $myInsert = new Inserir($myCon, $myTable, $myData);
+	$myInsert = new Inserir($myCon, $myTable, $myData);
 
 
 	echo "<pre>";
 	print_r($myCon);
 	echo "</pre>";
-	// echo "<pre>";
-	// print_r($myInsert);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($myInsert);
+	echo "</pre>";
 
 	$c = $myCon->conecta();
-	// $i = $myInsert->insere();
+	$i = $myInsert->insere();
